@@ -1,0 +1,1300 @@
+1.	JavaScript Program to Make a Simple Calculator.
+
+HTML
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./p1.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="p1.css">
+    <title>Program1</title>
+</head>
+<body>
+    <h1 style="text-align:center">Calculator App</h1>
+    <div class="container">
+        <br>
+        <table>
+            <tr>
+                <td colspan="3"><input type='text' id='result' class='screen' style="text-align: right;"></td>
+                <td>
+                    <input type='button' value='C' onclick="clearScreen()" class="clear" />
+                </td>
+            </tr>
+        </table>
+        <div class="keys">
+            <input type="button" value="7" class="button" onClick="display('7')"></input>
+            <input type="button" value="8" class="button " onClick="display('8')"></input>
+            <input type="button" value="9" class="button" onClick="display('9')"></input>
+            <input type="button" value="/" class="operator" onClick="display('/')"></input>
+            <input type="button" value="4" class="button" onClick="display('4')"></input>
+            <input type="button" value="5" class="button" onClick="display('5')"></input>
+            <input type="button" value="6" class="button" onClick="display('6')"></input>
+            <input type="button" value="*" class="operator" onClick="display('*')"></input>
+            <input type="button" value="1" class="button" onClick="display('1')"></input>
+            <input type="button" value="2" class="button" onClick="display('2')"></input>
+            <input type="button" value="3" class="button" onClick="display('3')"></input>
+            <input type="button" value="-" class="operator" onClick="display('-')"></input>
+            <input type="button" value="0" class="button" onClick="display('0')"></input>
+            <input type="button" value="." class="button" onClick="display('.')"></input>
+            <input type="button" value="=" class="button equal-sign" onClick="solve()"></input>
+            <input type="button" value="+" class="operator" onClick="display('+')"></input>
+        </div>
+    </div>
+</body>
+CSS
+
+.container {
+    border: 1px solid #cccccc;
+    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 400px;
+}
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    margin: auto;
+}
+.button {
+    height: 60px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size: 2rem;
+    color: #333;
+    background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+    text-shadow: 0 1px rgba(255, 255, 255, .4);
+}
+.button:hover {
+    background-color: #eaeaea;
+}
+.operator {
+    color: #fff;
+    background-color: #eebb24;
+}
+.clear {
+    background-color: #f0595f;
+    border-color: #b0353a;
+    color: #fff;
+    width: 80px;
+    height: 30px;
+}
+.clear:hover {
+    background-color: #f17377;
+}
+.equal-sign {
+    background-color: #25a8e0;
+    border-color: #25a8e0;
+    color: #fff;
+}
+.equal-sign:hover {
+    background-color: #4e9ed4;
+}
+.screen {
+    background-color: rgb(171, 219, 231);
+    justify-content: left;
+    color: black;
+    font-size: medium;
+    width: 50%;
+    height: 30%;
+    cursor: default;
+    padding: 10px;
+    padding-left: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+JAVASCRIPT
+function display(val) {
+    document.getElementById('result').value += val
+    return val
+}
+function solve() {
+    let x = document.getElementById('result').value
+    let y = eval(x);
+    document.getElementById('result').value = y
+    return y
+}
+function clearScreen() {
+    document.getElementById('result').value = ''
+}
+ 
+OUTPUT:
+
+ 
+ 
+2.	JavaScript Program to Find HCF or GCD.
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Insert</title>
+</head>
+<body>
+    First Number : <input type="text" id="no1" name="no1"></br></br>
+    Second Number : <input type="text" id="no2" name="no2"></br></br>
+    <button type="submit" onclick=result()>SUBMIT</button></br></br>
+    <input type="text" id="ans" name="ans" readonly>
+</body>
+<script src="p2.js"></script>
+</html>
+
+JAVASCRIPT
+function result(){
+    var n1=document.getElementById("no1").value;
+    var n2=document.getElementById("no2").value;
+   for(let i=0;i<n1 && i<n2;i++)
+   {
+    if(n1%i==0 && n2%i==0)
+    {
+        var hcf=i;
+    }
+   }
+    document.getElementById("ans").value=hcf;
+}
+Output:
+
+ 
+
+
+ 
+3. JavaScript Program to Guess a Random Number.
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Random Number</title>
+</head>
+<body>
+    <h1>Guess the Random Number</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="userGuess">
+    <button id="submitGuess">Submit Guess</button>
+    <p id="message"></p>
+    <script src="p3.js"></script>
+</body>
+</html>
+
+JAVASCRIPT
+
+const min = 1;
+const max = 100;
+const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+let attempts = 0;
+
+function checkGuess() {
+    const userGuessElement = document.getElementById("userGuess");
+    const userGuess = parseInt(userGuessElement.value);
+    if (isNaN(userGuess) || userGuess < min || userGuess > max) {
+        alert("Please enter a valid number between 1 and 100.");
+        userGuessElement.value = "";
+        return;
+    }
+    attempts++;
+    const messageElement = document.getElementById("message");
+    if (userGuess === randomNumber) {
+        messageElement.textContent = `Congratulations! You guessed the correct number (${randomNumber}) in ${attempts} attempts.`;
+        messageElement.style.color = "green";
+        userGuessElement.disabled = true;
+        document.getElementById("submitGuess").disabled = true; // Disable the button
+    } else if (userGuess < randomNumber) {
+        messageElement.textContent = "Too low. Try again.";
+        messageElement.style.color = "blue";
+    } else {
+        messageElement.textContent = "Too high. Try again.";
+        messageElement.style.color = "red";
+    }
+    userGuessElement.value = "";
+    userGuessElement.focus();
+}
+document.getElementById("submitGuess").addEventListener("click", checkGuess);
+
+Output:
+
+ 
+ 
+ 
+ 
+ 
+ 
+4. JavaScript Program to Sort Words in Alphabetical Order.
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Words Alphabetically</title>
+</head>
+<body>
+    <h1>Sort Words Alphabetically</h1>
+    <p>Enter a list of words:</p>
+    <input type="text" id="wordInput">
+    <button id="sortButton">Sort</button>
+    <p id="sortedWords"></p>
+    <script src="p4.js"></script>
+</body>
+</html>
+
+JAVASCRIPT
+function sortWords() {
+    const wordInput = document.getElementById("wordInput").value;
+    const wordsArray = wordInput.split(" ");
+    const filteredWordsArray = wordsArray.filter(word => word.trim() !== "");
+
+    if (filteredWordsArray.length === 0) {
+        alert("Please enter at least one word.");
+        return;
+    }
+    const sortedWords = filteredWordsArray.map(word => {
+        return word.split("").sort().join("");
+    }).sort(); 
+    const sortedWordsElement = document.getElementById("sortedWords");
+    sortedWordsElement.textContent = "Sorted words: " + sortedWords.join(", ");
+}
+document.getElementById("sortButton").addEventListener("click", sortWords);
+
+Output:
+ 
+5. JavaScript Program to Clone a JS Object.
+
+const person = {
+    name: 'Nirmal',
+    age: 23,
+}
+const clonePerson = Object.assign({}, person);
+console.log(clonePerson);
+clonePerson.name = 'Prajapati';
+document.write(clonePerson.name);
+document.write(person.name);
+
+Output:
+
+ 
+6. JavaScript Program to Loop Through an Object.
+
+const person = {
+    name: 'Nirmal',
+    age: 23,
+}
+for (let key in person) {
+    if (person.hasOwnProperty(key)) {
+        document.writeln(`${key}:- ${person[key]}`, "<br>");
+    }
+}
+
+Output:
+
+ 
+
+ 
+14. Create function components and class components with props.
+
+FunctionComponent.js
+import React from 'react';
+
+function FunctionComponent(props) {
+  return (
+    <div>
+      <h2>Function Component</h2>
+      <p>Received prop: {props.message}</p>
+    </div>
+  );
+}
+
+export default FunctionComponent;
+
+ClassComponent.js
+
+import React from 'react';
+class ClassComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Class Component</h2>
+        <p>Received prop: {this.props.message}</p>
+      </div>
+    );
+  }
+}
+export default ClassComponent;
+
+App.js
+
+import React from 'react';
+import './App.css'; // You can create this CSS file if needed
+import FunctionComponent from './FunctionComponent';
+import ClassComponent from './ClassComponent';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Props Example</h1>
+      <FunctionComponent message="Hello from Function Component!" />
+      <ClassComponent message="Hello from Class Component!" />
+    </div>
+  );
+}
+export default App;
+
+Output:
+
+  
+15. Practical Lab Assignment 1 (Basic)
+
+
+15.1 Write a program to print "Hello World" using JavaScript with html page.
+
+Demo.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p id="demo"></p>
+</body>
+<script src="P1.js" ></script>
+</html>
+
+
+P1.js
+
+document.getElementById("demo").innerHTML="Hello World";
+
+
+Output:
+
+ 
+
+ 
+15.2 Write a program to add two numbers and print the result. Use let and var keywords. 
+
+P2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>   
+</head>
+<body>
+    number 1:<input type="text" id="no1"><br><br>
+    number 2:<input type="text" id="no2"><br><br>
+    <button onclick="demo()">SUBMIT</button>
+</body>
+<script src="first.js"></script>
+</html>
+
+P2.js
+
+function demo()
+    {
+        let a = document.getElementById("no1").value;
+        let b = document.getElementById("no2").value;
+       
+        var c=parseInt(a)+parseInt(b);
+        document.write("Answer = ",c);
+    }
+
+Output:
+
+ 
+ 
+
+
+
+ 
+15.3 Write a program to add, subtract, multiply and divide two numbers and print the result using	javascript. 
+
+P3.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Number 1:<input id="no1"><br><br>
+    Number 2:<input id="no2"><br><br>
+    <button onclick="calc()">SUBMIT</button>
+</body>
+<script src="second.js"></script>
+</html>
+
+P3.js
+
+function calc()
+{
+    var n1=document.getElementById("no1").value;
+    var n2=document.getElementById("no2").value;
+    var res;
+    res = parseInt(n1)+parseInt(n2);
+    document.write("Add = " + res + "<br/>");
+    res = n1 - n2;
+    document.write("Subtract = " + res + "<br/>");
+    res = n1 * n2;
+    document.write("Multiply = " + res + "<br/>");
+    res = n1/n2;
+    document.write("Divide = " + res + "<br/>");
+}
+
+Output:
+
+ 	 
+
+
+15.4 Find maximum number from 3 given numbers. 
+
+P4.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    First Number :<input id="no1"><br><br>
+    Second Number :<input id="no2"><br><br>
+    Third Number :<input id="no3"><br><br>
+    <button onclick="max()">FIND</button>
+</body>
+<script src="P4.js"></script>
+</html>
+
+P4.js
+
+function max()
+{
+    var n1=document.getElementById("no1").value;
+    var n2=document.getElementById("no2").value;
+    var n3=document.getElementById("no3").value;
+    if(n1>n2 && n1>n3)
+    {
+        document.write(n1," is maximum");
+    }
+    else if(n2>n1 && n2>n3)
+    {
+        document.write(n2," is maximum");
+    }
+    else
+    {
+        document.write(n3," is maximum");
+    }
+}
+
+Output:
+
+ 	 
+15.5 Calculate area of circle, use Pi as a constant variable.
+
+P5.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>enter value r:</h3>
+    <input type="float" id="r">
+    <button type="submit" onclick="circle()">Find</button>
+    <script src="P5.js"></script>
+</body>
+</html>
+
+P5.js
+
+function circle() {
+
+    const Pi = 3.14
+    const radius = document.getElementById("r").value
+
+    const area = Pi * Math.pow(radius, 2);
+
+    alert(` area of the circle  ${radius} units is ${area} square units.`);
+
+}
+
+Output:
+
+
+ 
+
+ 
+16. Practical Lab Assignment 2
+(Loops, Conditions, Type conversionand Array Methods)
+
+16.1 Calculate the sum of all elements of an array using for each loop.
+
+P1.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="P1.js"></script>
+</body>
+</html>
+
+P1.js
+
+const arr=[1,2,3,4,5];
+var sum=0;
+arr.forEach(Element=>{sum+=Element});
+document.write('Sum=',sum);
+
+Output:
+
+ 
+ 
+16.2  Calculate the sum of all elements of an array using for loop.
+
+P2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P2.js"></script>
+</html>
+
+
+P2.js
+
+function calculateSum(arr) {
+    let totalSum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        totalSum += arr[i];
+    }
+    return totalSum;
+}
+const myArray = [2, 4, 6, 8, 10];
+const result = calculateSum(myArray);
+document.write("Sum of array elements:", result);
+
+Output:
+
+ 
+
+ 
+16.3 Display character from string like “JavaScript” using for loop.
+
+P3.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P3.js"></script>
+</html>
+
+P3.js
+
+const word = "JavaScript";
+for (let i = 0; i < word.length; i++) {
+    console.log(word[i]);
+}
+Output:
+
+ 
+
+ 
+16.4 Create multiple object value in array and display using loop.
+
+P4.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script src="P4.js"></script>
+</html>
+
+P4.js
+
+var object1 = { name: "jensi", age: 25 };
+var object2 = { name: "urvi", age: 30 };
+var object3 = { name: "rutu", age: 35 };
+var objectsArray = [object1, object2, object3];
+for (var i = 0; i < objectsArray.length; i++) {
+    var currentObject = objectsArray[i];
+    console.log("Name: " + currentObject.name + ", Age: " + currentObject.age+";");
+}
+
+Output:-
+
+ 
+
+
+ 
+16.5 Find number 70 from an array [20, 50, 75, 89, 100, 70].
+
+P5.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P5.js"></script>
+</html>
+
+P5.js
+
+    const myArray=[20, 50, 75, 89, 100, 70]
+    const number=70
+    const Indx = myArray.indexOf(number);
+if (Indx !== -1) {
+  document.write(`Number ${number} found at index ${Indx}`);
+} else {
+  document.write(`Number ${number} not found in the array`);
+}
+
+Output:-
+
+ 
+ 
+16.6 Take number as input in string variable, check the datatype of input variable and convert into number and vice versa.
+
+P6.html1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P6.js"></script>
+</html>
+
+P6.js
+
+const inputString = prompt("Enter a number:");
+const inputDataType = typeof inputString;
+document.writeln(`Data type of input: ${inputDataType}`);
+document.writeln("</br></br>")
+const convertedNumber = parseFloat(inputString);
+document.writeln(`Converted number: ${convertedNumber}`);
+document.writeln("</br></br>")
+const convertedString = convertedNumber.toString();
+document.writeln(`Converted back to string: ${convertedString}`);
+document.writeln("</br></br>")
+
+Output:
+
+ 
+ 
+
+ 
+16.7 Take number as input in string variable, check the datatype of input variable and convert into number.
+
+P7.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Input to Number</title>
+</head>
+<body>
+    <h1>Convert Input to Number</h1>
+    <form id="numberForm">
+        <label for="numberInput">Enter a number:</label>
+        <input type="text" id="numberInput" name="numberInput">
+        <button type="button" id="convertButton">Convert</button>
+    </form>
+    <p id="result"></p>
+
+    <script src="P7.js"></script>
+</body>
+</html>
+
+P7.js
+
+function convertToNumber() {
+    const inputElement = document.getElementById("numberInput");
+    const inputValue = inputElement.value;    
+    if (isNaN(inputValue)) {
+        document.getElementById("result").textContent = "Invalid input. Please enter a valid number.";
+    } else {        
+        const numberValue = parseFloat(inputValue);        
+        const dataType = typeof numberValue;        
+        document.getElementById("result").textContent = `Input value: ${numberValue}, Data Type: ${dataType}`;
+    }
+}
+document.getElementById("convertButton").addEventListener("click", convertToNumber);
+ 
+Output:
+
+ 
+ 
+
+ 
+16.8 Take date as input and using date method display date in format DD:MM:YY HH:MM:SS.
+
+P8.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P8.js"></script>
+</html>
+
+P8.js
+
+const inputDateStr = prompt("Enter a date (YYYY-MM-DD HH:MM:SS):");
+const inputDate = new Date(inputDateStr);
+const day = inputDate.getDate().toString().padStart(2, '0');
+const month = (inputDate.getMonth() + 1).toString().padStart(2, '0');
+const year = inputDate.getFullYear().toString().slice(-2);
+const hours = inputDate.getHours().toString().padStart(2, '0');
+const minutes = inputDate.getMinutes().toString().padStart(2, '0');
+const seconds = inputDate.getSeconds().toString().padStart(2, '0');
+const formattedDate = `${day}:${month}:${year} ${hours}:${minutes}:${seconds}`;
+document.writeln(`Formatted date: ${formattedDate}`);
+
+Output:-
+
+ 
+ 
+
+ 
+16.9  Assume an array with data from 1 to 20 numbers and reverse the array. Find the value at index 12, and index of last element in the array.
+
+P9.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="P9.js"></script>
+</html>
+
+#Q9.js
+
+const originalArray = Array.from({ length: 20 }, (_, index) => index + 1);
+const reversedArray = originalArray.reverse();
+const valueAtIndex12 = reversedArray[12];
+const lastIndex = reversedArray.length - 1;
+document.writeln("Reversed Array:", reversedArray);
+document.writeln("</br></br>");
+document.writeln("Value at index 12:", valueAtIndex12);
+document.writeln("</br></br>");
+document.writeln("Index of last element:", lastIndex);
+document.writeln("</br></br>");
+
+Output:
+
+ 
+
+ 
+16.10 Assume an array of employee objects and filter the employees with salary greater than 20000. Use filter function.
+
+var employees = [
+    { name: 'Alice', salary: 22000 },
+    { name: 'Bob', salary: 18000 },
+    { name: 'Charlie', salary: 25000 },
+    { name: 'David', salary: 21000 },
+    { name: 'Eve', salary: 19000 }
+  ];
+
+  var highsalary = employees.filter(function(employees) { return employees.salary > 20000;});
+  
+  console.log(highsalary);
+
+Output:
+
+ 
+
+
+16.11 Assume an array with numbers from 1 to 10. Use map function to find square of each number.
+
+const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let sq = num.map((e) => {
+  return e * e;
+});
+console.log(sq);
+
+Output:
+
+ 
+
+ 
+16.12 Assume an array of Student object with Student name and Student Sirname. Use map to print full name of students.
+
+const stu = [
+  {
+    fname: "jensi",
+    lname: "darji",
+  },
+  {
+    fname: "Rutika",
+    lname: "Viradiya",
+  },
+];
+let ot = stu.map((w) => {
+  return `hello ${w.fname} ${w.lname}`;
+});
+ot.forEach((element) => {
+  console.log(element);
+});
+const stu = [
+  {
+    fname: "Abhi",
+    lname: "Patel",
+  },
+  {
+    fname: "Nirmal",
+    lname: "Prajapati",
+  },
+];
+let ot = stu.map((w) => {
+  return `hello ${w.fname} ${w.lname}`;
+});
+ot.forEach((element) => {
+  console.log(element);
+});
+
+Output:
+          
+ 
+
+ 
+16.13 Assume array of numbers [20, 50, 75, 89, 100, 70], use reduce method to sum all numbers of given array.
+
+let arr = [20, 50, 75, 89, 100, 70];
+let res = arr.reduce((cur, pre) => {
+  return cur + pre;
+});
+console.log(res);
+
+Output:
+
+ 
+
+16.14 Consider array of car names, use for loop to concate names of all cars in one string.
+const carNames = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'BMW', 'Mercedes'];
+let concatenatedNames = '';
+for (let i = 0; i < carNames.length; i++) {
+  concatenatedNames += carNames[i];
+}
+console.log(concatenatedNames);
+
+Output:
+
+ 
+
+ 
+17. Practical Lab Assignment 3
+
+
+17.1 Write a program to create a server using the http module. The server should listen on port no 3000 and respond “Hello World” in Browser.
+
+var http = require('http');
+http.createServer(function (req,res)
+{
+    res.write('Hello World');
+    res.end();
+}).listen(3000);
+
+Output:
+
+ 
+
+
+17.2 Consider you received a url Http://localhost:3000/?year=2022&month=Sep&id=12, parse this url using url module and extract host name, path and search query string. Also extract individual attribute details from querystring.
+
+var url = require('url');
+var aurl = 'http://localhost:3000/?year=2022&month=Sep&id=12'
+var ad = url.parse(aurl, true);
+console.log(ad.pathname);
+console.log(ad.search);
+console.log(ad.host);
+console.log(ad.hostname);
+var data = ad.query;
+console.log(data.year);
+
+Output:
+
+ 
+ 
+17.3 Write a program to create server and perform basic routing. The server should respond with “The about Page” if url is http://localhost:3000/about, “The Contact page” if url is
+      http://localhost:3000/contact, “Home Page” if url is http://localhost:3000/, and “Page not found” for any other url on localhost:/3000.
+
+const http = require('http'); 
+http.createServer(function (req, res) {     
+    res.writeHead(200, {'Content-Type': 'text/html'});     
+    const url = req.url;     
+    if(url ==='/about') {
+        res.write(' Welcome to about us page');
+        res.end();
+    }
+    else if(url ==='/contact') {
+        res.write(' Welcome to contact us page');
+        res.end();
+    }
+    else {
+        res.write('Page not found');
+        res.end();
+    }
+}).listen(3000, function() {
+         console.log("server start at http://localhost:3000/");
+});
+
+Output:
+
+ 
+ 
+ 
+
+ 
+
+
+
+ 
+17.4 Create html pages named home.html, about.html, contact.html and pagenotfound.html. Write a program to create server and perform basic routing and return pages from server instead of string. Refer question 3 for url and page to return.
+
+const http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {     
+    res.writeHead(200, {'Content-Type': 'text/html'});     
+    const url = req.url;     
+    var home = fs.readFileSync("./home.html");
+    var about = fs.readFileSync("./about.html");
+    var err = fs.readFileSync("./error.html");
+    var contact = fs.readFileSync("./contact.html");
+    if(url ==='/about') {        
+        res.end(about);    
+    }
+    else if(url ==='/contact') {
+        res.end(contact);
+    }
+    else if(url ==='/') {
+        res.end(home);
+    }
+    else {
+        
+        res.end(err);
+    }
+}).listen(8000, function() {
+         console.log("server start at http://localhost:8000/");
+});
+
+Output:
+
+ 
+
+ 
+Home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">This is Home page</h1>
+</body>
+</html>
+
+Output:
+
+  
+
+Contact.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Contact Page</h1>
+</body>
+</html>
+
+
+Output:
+
+ 
+
+
+ 
+
+About.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+</head>
+<body>
+    <h1 align="center">This is about page</h1>
+</body>
+</html>
+
+Output:
+
+ 
+
+Error.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Error 404 Page</h1>
+</body>
+</html>
+
+Output:
+
+ 
+
+
+18. Practical Lab Assignment 4 (node js)
+18.1 Write a program to create server-using express. The server should listen on port no. 3000 and respond “Hello World” in browser. 
+
+const express = require('express');
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
+Output:
+ 
+18.2 Create a project to book movie tickets one at a time. On successful booking of ticket email sent to email and email, price and date & time of booking is saved in database should be displayed to user. When no seats are available Houseful message should be displayed to user. (Creating project is compulsory, project.json should be available, Compulsorily Use Event Driven Programming). 
+TicketManager.js
+const EventEmitter = require("events");
+class TicketManager extends EventEmitter {
+    constructor(supply) {
+        super();
+        this.supply = supply;
+    }
+    buy(email, price) {
+        if (this.supply > 0) {
+            console.log("remaining tickets : ", this.supply);
+            this.supply--;
+            console.log("After Booking : ", this.supply);
+            this.emit("Buy", email, price, Date.now());
+        }
+        else {
+            this.emit("error", new Error("There are no more tickets left to purchase"));
+        }
+    }
+}
+module.exports = TicketManager
+Email.js
+
+class SendEmail {
+    send(email) {
+        console.log(`Sending email to ${email}`);
+    }
+}
+module.exports = SendEmail
+
+Database.js
+
+class StoreInDatabase {
+    save(email, price, timestamp) {
+        console.log(`Running query : INSERT INTO orders VALUES (email,price,created)
+   VALUES(${email},${price},${timestamp})`)
+    }
+}
+module.exports = StoreInDatabase
+
+App.js
+
+const TicketManager = require("./ticketManager");
+const SendEmail = require("./email");
+const StoreInDatabase = require("./Database");
+const { timeStamp } = require("console");
+const ticketManager = new TicketManager(3);
+const SE = new SendEmail();
+const SD = new StoreInDatabase();
+ticketManager.on("buy", (email, price, timeStamp) => {
+    SE.send(email);
+    SD.save(email, price, timeStamp);
+});
+ticketManager.on("error", () => {
+    console.log("House Full");
+});
+ticketManager.buy('nirmal@gmail.com', 100);
+ticketManager.buy('rutika@gmail.com', 100);
+ticketManager.buy('abhi@gmail.com', 100);
+ticketManager.buy('jensi@gmail.com', 100);
+
+ 
+TicketListner.js
+const TicketManager = require("./ticketManager");
+const ticketManager = new TicketManager(2);
+ticketManager.on("buy", () => {
+    console.log("Someone bought a ticket!");
+});
+ticketManager.on("error", () => {
+    console.log("House Full");
+});
+ticketManager.buy('nirmal@gmail.com', 100);
+ticketManager.buy('rutika@gmail.com', 100);
+ticketManager.buy('abhi@gmail.com', 100); 
+
+Output:
+
+   
+18.3 Create a program to emit an event called Promotion. Add 3 Listeners for Promotion event. The first Listener should display “Promotion started in Surat”, Second listener should display “Promotion started in Mumbai”, and third listener should diplay “Promotion started in Delhi”. After adding listeners display number of listeners and list of listeners. The movie is banned in Mumbai so remove second listener. Now again display number of listeners, list of listeners. 
+const EventEmitter = require('events')
+const eventEmitter = new EventEmitter();
+const suratListener = () => {
+  console.log("Promotion started in Surat");
+};
+const mumbaiListener = () => {
+  console.log("Promotion started in Mumbai");
+};
+const delhiListener = () => {
+  console.log("Promotion started in Delhi");
+};
+eventEmitter.on('Promotion', suratListener);
+eventEmitter.on('Promotion', mumbaiListener);
+eventEmitter.on('Promotion', delhiListener);
+const listenersCount = eventEmitter.listenerCount('Promotion');
+const listenersList = eventEmitter.listeners('Promotion');
+console.log("Number of Listeners:", listenersCount);
+console.log("List of Listeners:", listenersList);
+eventEmitter.removeListener('Promotion', mumbaiListener);
+const updatedListenersCount = eventEmitter.listenerCount('Promotion');
+const updatedListenersList = eventEmitter.listeners('Promotion');
+console.log("\nAfter Removing Mumbai Listener:");
+console.log("Number of Listeners:", updatedListenersCount);
+console.log("List of Listeners:", updatedListenersList);
+
+Output:
+
+ 
+ 
+18.4 Create a project to emit an event when attendance is lessthan 75%, on emitting an event print “Message sent to email” and “dataissaved in the database”. Use Attendance, Student Name and Percentageforsaving in the database.
+
+App.js
+
+const EventEmitter = require("events");
+const StoreInDatabase = require("./Database");
+const eventEmitter = new EventEmitter();
+const SD = new StoreInDatabase();
+function calculatePercentage(attendance) {
+  return (attendance / 100) * 100;
+}
+function checkAttendance(studentName, attendance) {
+  const percentage = calculatePercentage(attendance);
+  if (percentage < 75) {
+    
+    eventEmitter.emit("lowAttendance", studentName, attendance, percentage);
+  }
+}
+eventEmitter.on("lowAttendance", (studentName, attendance, percentage) => {
+  console.log("Message sent to email");
+  console.log("Data is saved in the database");
+  SD.save(studentName, attendance, percentage);
+});
+const studentName = "John Doe";
+const attendance = 60; 
+checkAttendance(studentName, attendance);
+
+Database.js
+
+class StoreInDatabase {
+  save(studentName, attendance, percentage) {
+    console.log(`Running query : INSERT INTO attendance (studentName, attendance, percentage) VALUES
+ (${studentName}, ${attendance}, ${percentage})`)
+  }
+}
+module.exports = StoreInDatabase
+
+Output:
+
